@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE Configure PUBLIC "-//Jetty//Configure//EN" "http://www.eclipse.org/jetty/configure.dtd">
+
+<!-- =============================================================== -->
+<!-- Configure the Jetty Request Lo                                  -->
+<!-- =============================================================== -->
+
+<Configure id="Server" class="org.eclipse.jetty.server.Server">
+
+    <!-- =========================================================== -->
+    <!-- Configure Logback Access Request Log                        -->
+    <!-- =========================================================== -->
+    <Ref id="Handlers">
+      <Call name="addHandler">
+        <Arg>
+          <New id="RequestLog" class="org.eclipse.jetty.server.handler.RequestLogHandler">
+            <Set name="requestLog">
+              <New id="RequestLogImpl" class="ch.qos.logback.access.jetty.v7.RequestLogImpl">
+                <Set name="fileName">resources/logback-access.xml</Set>
+              </New>
+            </Set>
+          </New>
+        </Arg>
+      </Call>
+    </Ref>
+
+</Configure>

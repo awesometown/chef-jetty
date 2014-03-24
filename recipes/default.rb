@@ -33,5 +33,5 @@ template "/opt/jetty/etc/webdefault.xml" do
 end
 
 service "jetty" do
-	action :restart
+	action :enable
 end
