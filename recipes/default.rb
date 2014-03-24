@@ -20,13 +20,23 @@ dpkg_package "#{node[:jetty][:debpackage]}" do
 	action :install
 end
 
-template "/opt/jetty/etc/jetty.xml" do
+if node[:jetty][:clean]
+	execute "remove jetty contexts" do
+		command "rm -rf #{node[:jetty][:webappsdir]}/*"
+	end
+
+	execute "remove jetty webapps" do
+		command "rm -rf #{node[:jetty][:contextsdir]}/*"
+	end
+end
+
+template "#{node[:jetty][:homedir]}/etc/jetty.xml" do
 	source "jetty.xml.erb"
 	owner node[:jetty][:user]
 	group node[:jetty][:group]
 end
 
-template "/opt/jetty/etc/webdefault.xml" do
+template "#{node[:jetty][:homedir]}/etc/webdefault.xml" do
 	source "webdefault.xml.erb"
 	owner node[:jetty][:user]
 	group node[:jetty][:group]
