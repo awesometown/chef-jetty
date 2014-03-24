@@ -10,13 +10,13 @@
 include_recipe 'apt'
 include_recipe 'java'
 
-remote_file "#{Chef::Config[:file_cache_path]}/jetty-deb-8.1.9.v20130131.deb" do
-	source "http://central.maven.org/maven2/org/mortbay/jetty/dist/jetty-deb/8.1.9.v20130131/jetty-deb-8.1.9.v20130131.deb"
+remote_file "#{Chef::Config[:file_cache_path]}/#{node[:jetty][:debfile]}" do
+	source "#{node[:jetty][:source]}"
 	action :create
 end
 
-dpkg_package "jetty-hightide-server" do
-	source "#{Chef::Config[:file_cache_path]}/jetty-deb-8.1.9.v20130131.deb"
+dpkg_package "#{node[:jetty][:debpackage]}" do
+	source "#{Chef::Config[:file_cache_path]}/#{node[:jetty][:debfile]}"
 	action :install
 end
 
