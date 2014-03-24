@@ -20,7 +20,7 @@ dpkg_package "#{node[:jetty][:debpackage]}" do
 	action :install
 end
 
-if node[:jetty][:clean] do
+if node[:jetty][:clean]
 	execute "remove jetty contexts" do
 		command "rm -rf #{node[:jetty][:webappsdir]}/*"
 	end
