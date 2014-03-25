@@ -62,13 +62,21 @@
 					<Item>
 						<New id="Contexts" class="org.eclipse.jetty.server.handler.ContextHandlerCollection" />
 					</Item>
-					<!--<Item>
-						<New id="DefaultHandler" class="org.eclipse.jetty.server.handler.DefaultHandler" />
-					</Item>-->
+					<Item>
+						<New id="RequestLog" class="org.eclipse.jetty.server.handler.RequestLogHandler"/>
+					</Item>
 				</Array>
 			</Set>
 		</New>
 	</Set>
+
+	<Ref id="RequestLog">
+		<Set name="requestLog">
+			<New id="RequestLogImpl" class="ch.qos.logback.access.jetty.RequestLogImpl">
+				<Set name="fileName">resources/logback-access.xml</Set>
+			</New>
+		</Set>
+	</Ref>
 
 	<!-- =========================================================== -->
 	<!-- extra options -->
