@@ -1,5 +1,5 @@
-default[:jetty][:user] = "ec2-user"
-default[:jetty][:group] = "ec2-user"
+default[:jetty][:user] = "ubuntu"
+default[:jetty][:group] = "ubuntu"
 default[:jetty][:version] = "8.1.9.v20130131"
 default[:jetty][:debfile] = "jetty-deb-#{node[:jetty][:version]}.deb"
 default[:jetty][:source] = "http://central.maven.org/maven2/org/mortbay/jetty/dist/jetty-deb/#{node[:jetty][:version]}/#{node[:jetty][:debfile]}"
