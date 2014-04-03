@@ -1,9 +1,6 @@
-chef-jetty
-==========
-
-Chef recipe to install and configure Jetty
-=======
 # jetty cookbook
+
+Chef recipe to install and configure Jetty. Not currently especially tested, configurable or suited to general use.
 
 # Requirements
 
