@@ -33,12 +33,12 @@ remote_file "#{node[:jetty][:homedir]}/lib/ext/logstash-logback-encoder-2.5.jar"
 	notifies :restart, "service[jetty]", :delayed
 end
 
-template "#{node[:jetty][:homedir]}/etc/jetty-logging.xml" do
-	source "jetty-logging.xml.erb"
-	owner node[:jetty][:user]
-	group node[:jetty][:group]
-	notifies :restart, "service[jetty]", :delayed
-end
+#template "#{node[:jetty][:homedir]}/etc/jetty-logging.xml" do
+#	source "jetty-logging.xml.erb"
+#	owner node[:jetty][:user]
+#	group node[:jetty][:group]
+#	notifies :restart, "service[jetty]", :delayed
+#end
 
 template "#{node[:jetty][:homedir]}/resources/logback-access.xml" do
 	source "logback-access.xml.erb"

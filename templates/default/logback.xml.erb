@@ -18,11 +18,14 @@
 			<fileNamePattern>logs/jetty.%d{yyyy-MM-dd_HH}.log</fileNamePattern>
 			<maxHistory>12</maxHistory>
 		</rollingPolicy>
-		<encoder class="net.logstash.logback.encoder.LogstashAccessEncoder" />
+		<encoder class="net.logstash.logback.encoder.LogstashEncoder">
+			<includeCallerInfo>false</includeCallerInfo>
+		</encoder>
 	</appender>
 
 
 	<root level="info">
 		<appender-ref ref="FILE" />
+		<!--<appender-ref ref="STDOUT" />-->
 	</root>
 </configuration>
