@@ -9,3 +9,6 @@ default[:jetty][:clean] = true
 default[:jetty][:homedir] = "/opt/jetty"
 default[:jetty][:webappsdir] = "#{node[:jetty][:homedir]}/webapps"
 default[:jetty][:contextsdir] = "#{node[:jetty][:homedir]}/contexts"
+
+default[:jetty][:logback][:enabled] = true
+default[:jetty][:logbackaccess][:enabled] = true
