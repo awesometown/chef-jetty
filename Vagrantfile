@@ -22,8 +22,7 @@ Vagrant.configure("2") do |config|
       },
     }
     chef.run_list = [
-      "recipe[jetty::default]",
-      "recipe[jetty::logback]"
+      "recipe[jetty::default]"
     ]
   end
 end
